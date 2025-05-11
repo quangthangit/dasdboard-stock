@@ -34,7 +34,7 @@ export default function ProductPage() {
     // Handle delete product
     const handleDelete = async (_id) => {
         // try {
-        //     await fetch(`https://study-language-backend-cpm6.vercel.app/products${_id}`, {
+        //     await fetch(`https://study-language-backend-cpm6.vercel.app/products/${_id}`, {
         //         method: "DELETE",
         //     });
 
@@ -76,6 +76,7 @@ export default function ProductPage() {
             setNewProduct({ code: "", name: "", price: "", unit: "", description: "", quantity: "" });
             setIsModalOpen(false);
             alert("Product added successfully!");
+
         } catch (error) {
             console.error("Error adding product:", error);
         }
@@ -135,7 +136,7 @@ export default function ProductPage() {
                                                     className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition duration-300"
                                                     onClick={() => handleDelete(product._id)}
                                                 >
-                                                    Delete
+                                                    Xóa
                                                 </button>
                                             </td>
                                             {/* <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{product?.name || "Unknown"}</td>

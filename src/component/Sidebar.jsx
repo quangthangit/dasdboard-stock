@@ -24,7 +24,7 @@ export default function Sidebar() {
                 </Link>
                 <Link
                     to="/product"
-                    className={`flex items-center py-3 px-6 hover:bg-blue-700 ${isActive("/prduct") ? "bg-blue-700" : ""}`}
+                    className={`flex items-center py-3 px-6 hover:bg-blue-700 ${isActive("/product") ? "bg-blue-700" : ""}`}
                 >
                     <i className="fas fa-boxes mr-3"></i>
                     <span className="nav-text">Sản phẩm</span>

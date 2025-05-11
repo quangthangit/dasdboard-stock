@@ -61,6 +61,7 @@ export default function StockPage() {
             setNewStock({ productId: "", quantity: "", type: "import" });
             setIsModalOpen(false);
             alert("Stock transaction added!");
+                    window.location.reload()
         } catch (error) {
             console.error("Error adding stock:", error);
         }
@@ -88,9 +89,9 @@ export default function StockPage() {
                             <thead className="bg-gray-50">
                                 <tr>
                                     <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Mã GD</th>
-                                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Loại</th>
-                                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Hàng Hóa</th>
+                                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tên sản phẩm</th>
                                     <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Số Lượng</th>
+                                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Hành động</th>
                                     <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Ngày</th>
                                     <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Trạng Thái</th>
                                 </tr>
@@ -202,13 +203,13 @@ export default function StockPage() {
                                     onClick={() => setIsModalOpen(false)}
                                     className="bg-gray-400 text-white px-4 py-2 rounded-lg hover:bg-gray-500"
                                 >
-                                    Cancel
+                                    Hủy
                                 </button>
                                 <button
                                     onClick={handleAddStock}
                                     className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-300"
                                 >
-                                    Add
+                                    Thêm
                                 </button>
                             </div>
                         </div>
