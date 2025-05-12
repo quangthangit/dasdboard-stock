@@ -6,9 +6,9 @@ import { subDays, format, isSameDay } from 'date-fns';
 function processChartData(stocks) {
   const labels = [];
   const products = {}; // Object to hold product data
-  
+
   const today = new Date();
-  
+
   // Loop through the last 7 days
   for (let i = 6; i >= 0; i--) {
     const date = subDays(today, i);
@@ -42,21 +42,64 @@ function processChartData(stocks) {
   }
 
   // Create the datasets for each product
-  const datasets = Object.keys(products).map(productName => {
+  // Define a color palette
+  const colorPalette = [
+    'rgba(75, 192, 192, 0.5)',
+    'rgba(255, 99, 132, 0.5)',
+    'rgba(54, 162, 235, 0.5)',
+    'rgba(255, 206, 86, 0.5)',
+    'rgba(153, 102, 255, 0.5)',
+    'rgba(255, 159, 64, 0.5)',
+    'rgba(199, 199, 199, 0.5)',
+    'rgba(83, 102, 255, 0.5)',
+    'rgba(255, 102, 255, 0.5)',
+    'rgba(102, 255, 178, 0.5)',
+    'rgba(255, 0, 0, 0.5)',
+    'rgba(0, 255, 0, 0.5)',
+    'rgba(0, 0, 255, 0.5)',
+    'rgba(128, 0, 128, 0.5)',
+    'rgba(0, 128, 128, 0.5)',
+    'rgba(255, 105, 180, 0.5)',
+    'rgba(255, 215, 0, 0.5)',
+    'rgba(139, 69, 19, 0.5)',
+    'rgba(70, 130, 180, 0.5)',
+    'rgba(0, 100, 0, 0.5)',
+    'rgba(100, 149, 237, 0.5)',
+    'rgba(233, 150, 122, 0.5)',
+    'rgba(255, 140, 0, 0.5)',
+    'rgba(138, 43, 226, 0.5)',
+    'rgba(64, 224, 208, 0.5)',
+    'rgba(176, 224, 230, 0.5)',
+    'rgba(240, 128, 128, 0.5)',
+    'rgba(50, 205, 50, 0.5)',
+    'rgba(106, 90, 205, 0.5)',
+    'rgba(0, 191, 255, 0.5)'
+  ];
+
+
+  // Create the datasets for each product
+  const datasets = Object.keys(products).flatMap((productName, index) => {
     const product = products[productName];
+function generateColor(index, type) {
+  const hue = (index * 40 + (type === 'export' ? 20 : 0)) % 360;
+  return `hsla(${hue}, 70%, 60%, 0.5)`;
+}
+
     return [
       {
         label: `${productName} - Nhập`,
         data: product.import,
-        backgroundColor: 'rgba(75, 192, 192, 0.5)',
+        backgroundColor: generateColor(index, 'import'),
       },
       {
         label: `${productName} - Xuất`,
         data: product.export,
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
-      },
+        backgroundColor: generateColor(index, 'export'),
+      }
     ];
-  }).flat(); // Flatten the array of datasets
+  });
+
+  // Flatten the array of datasets
 
   return {
     labels,
