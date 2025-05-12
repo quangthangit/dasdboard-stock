@@ -33,17 +33,17 @@ export default function ProductPage() {
 
     // Handle delete product
     const handleDelete = async (_id) => {
-        // try {
-        //     await fetch(`https://study-language-backend-cpm6.vercel.app/products/${_id}`, {
-        //         method: "DELETE",
-        //     });
+        try {
+            await fetch(`https://study-language-backend-cpm6.vercel.app/products/${_id}`, {
+                method: "DELETE",
+            });
 
-        //     const updatedProducts = products.filter((product) => product._id !== _id);
-        //     setProducts(updatedProducts);
-        //     alert(`Product with _id: ${_id} has been deleted`);
-        // } catch (error) {
-        //     console.error("Error deleting product:", error);
-        // }
+            const updatedProducts = products.filter((product) => product._id !== _id);
+            setProducts(updatedProducts);
+            alert(`Product with _id: ${_id} has been deleted`);
+        } catch (error) {
+            console.error("Error deleting product:", error);
+        }
     };
 
     // Handle add product
