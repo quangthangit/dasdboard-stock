@@ -174,9 +174,9 @@ export default function HomePage() {
                     <div className="flex items-center justify-between">
                         <div>
                             <p className="text-gray-500">Tổng xuất kho</p>
-                            <h3 className="text-2xl font-bold text-orange-600">{totalExportCurrentWeek}</h3>
-                            <p className="text-red-500 text-sm mt-1">
-                                <i className="fas fa-arrow-down mr-1"></i> {calculatePercentageChange(totalExportCurrentWeek, totalExportLastWeek).toFixed(2)}% so với tuần trước
+                            <h3 className="text-2xl font-bold text-blue-600">{totalExportCurrentWeek}</h3>
+                            <p className="text-green-500 text-sm mt-1">
+                                <i className="fas fa-arrow-up mr-1"></i> {calculatePercentageChange(totalExportCurrentWeek, totalExportLastWeek).toFixed(2)}% so với tuần trước
                             </p>
                         </div>
                         <div className="bg-orange-100 p-3 rounded-full">
@@ -188,9 +188,9 @@ export default function HomePage() {
                     <div className="flex items-center justify-between">
                         <div>
                             <p className="text-gray-500">Tồn kho hiện tại</p>
-                            <h3 className="text-2xl font-bold text-green-600">{currentStock}</h3>
+                            <h3 className="text-2xl font-bold text-green-600">{totalImportCurrentWeek-totalExportCurrentWeek}</h3>
                             <p className="text-green-500 text-sm mt-1">
-                                <i className="fas fa-arrow-down mr-1"></i> {currentStock > lastStock ? 'Giảm' : 'Tăng'} so với tuần trước
+                                <i className="fas fa-arrow-up mr-1"></i> {currentStock > lastStock ? 'Giảm' : 'Tăng'} so với tuần trước
                             </p>
                         </div>
                         <div className="bg-green-100 p-3 rounded-full">
