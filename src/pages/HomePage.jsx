@@ -160,9 +160,6 @@ export default function HomePage() {
                         <div>
                             <p className="text-gray-500">Tổng nhập kho</p>
                             <h3 className="text-2xl font-bold text-blue-600">{totalImportCurrentWeek}</h3>
-                            <p className="text-green-500 text-sm mt-1">
-                                <i className="fas fa-arrow-up mr-1"></i> {calculatePercentageChange(totalImportCurrentWeek, totalImportLastWeek).toFixed(2)}% so với tuần trước
-                            </p>
                         </div>
                         <div className="bg-blue-100 p-3 rounded-full">
                             <i className="fas fa-sign-in-alt text-blue-600 text-xl"></i>
@@ -174,9 +171,6 @@ export default function HomePage() {
                         <div>
                             <p className="text-gray-500">Tổng xuất kho</p>
                             <h3 className="text-2xl font-bold text-blue-600">{totalExportCurrentWeek}</h3>
-                            <p className="text-green-500 text-sm mt-1">
-                                <i className="fas fa-arrow-up mr-1"></i> {calculatePercentageChange(totalExportCurrentWeek, totalExportLastWeek).toFixed(2)}% so với tuần trước
-                            </p>
                         </div>
                         <div className="bg-orange-100 p-3 rounded-full">
                             <i className="fas fa-sign-out-alt text-orange-600 text-xl"></i>
@@ -188,9 +182,6 @@ export default function HomePage() {
                         <div>
                             <p className="text-gray-500">Tồn kho hiện tại</p>
                             <h3 className="text-2xl font-bold text-green-600">{totalImportCurrentWeek-totalExportCurrentWeek}</h3>
-                            <p className="text-green-500 text-sm mt-1">
-                                <i className="fas fa-arrow-up mr-1"></i> {currentStock > lastStock ? 'Giảm' : 'Tăng'} so với tuần trước
-                            </p>
                         </div>
                         <div className="bg-green-100 p-3 rounded-full">
                             <i className="fas fa-boxes text-green-600 text-xl"></i>
