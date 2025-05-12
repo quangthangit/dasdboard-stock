@@ -130,7 +130,6 @@ export default function HomePage() {
         <div className="main-content flex-1 ml-64 p-8">
             <header className="mb-8">
                 <h1 className="text-3xl font-bold text-gray-800">Dashboard Thống Kê Hàng Hóa</h1>
-                <p className="text-gray-600">Thống kê nhập xuất hàng hóa trong 7 ngày gần nhất</p>
             </header>
 
             <div className="bg-white rounded-lg shadow p-6 mb-8">
